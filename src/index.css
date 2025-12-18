@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Inter", serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #888; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ------------------------------- */
+/* -----   HeaderCard Styles  ---- */
+/* ------------------------------- */
+
+/* GRID */
+.header-card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .header-card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) {
+  .header-card-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1280px) {
+  .header-card-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* CARD BASE */
+.card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(229,231,235,1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* TEXT */
+.card__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(17,24,39,0.85);
+}
+.card__value {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: rgba(17,24,39,1);
+  margin-top: 0.5rem;
+}
+
+/* ICON */
+.card__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  font-size: 1.5rem;
+}
+
+/* LIGHT GRADIENT VARIANTS */
+.card--blue { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+.card--pink { background: linear-gradient(135deg, #fff1f2, #ffe4e6); }
+.card--amber { background: linear-gradient(135deg, #fffbeb, #fef3c7); }
+.card--green { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+.card--indigo { background: linear-gradient(135deg, #eef2ff, #e0e7ff); }
+.card--cyan { background: linear-gradient(135deg, #ecfeff, #cffafe); }
+.card--rose { background: linear-gradient(135deg, #fff1f2, #ffe4e6); }
+
+/* LIGHT ICON BG */
+.icon--blue { background: rgba(191,219,254,0.6); color:#1e3a8a; }
+.icon--pink { background: rgba(251,207,232,0.6); color:#be185d; }
+.icon--amber { background: rgba(253,230,138,0.6); color:#92400e; }
+.icon--green { background: rgba(190,242,166,0.6); color:#065f46; }
+.icon--indigo { background: rgba(199,210,254,0.6); color:#4338ca; }
+.icon--cyan { background: rgba(204,251,241,0.6); color:#056f6a; }
+.icon--rose { background: rgba(254,226,226,0.6); color:#b91c1c; }
+
+/* -------------------------------- */
+/* DARK MODE OVERRIDES – PERFECT 🔥 */
+/* -------------------------------- */
+
+.dark .card {
+  border-color: rgba(55,65,81,0.7);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Dark gradients */
+.dark .card--blue { background: linear-gradient(135deg,#0f172a,#1e293b); }
+.dark .card--pink { background: linear-gradient(135deg,#2b1220,#3b0d18); }
+.dark .card--amber { background: linear-gradient(135deg,#2b250f,#3a2f12); }
+.dark .card--green { background: linear-gradient(135deg,#08241a,#11352a); }
+.dark .card--indigo { background: linear-gradient(135deg,#0b1330,#111a3d); }
+.dark .card--cyan { background: linear-gradient(135deg,#032026,#062f33); }
+.dark .card--rose { background: linear-gradient(135deg,#2a1012,#3a1518); }
+
+/* Dark icon */
+.dark .icon--blue,
+.dark .icon--pink,
+.dark .icon--amber,
+.dark .icon--green,
+.dark .icon--indigo,
+.dark .icon--cyan,
+.dark .icon--rose {
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+/* ⭐ FIX: DARK MODE TEXT COLOR */
+.dark .card__title {
+  color: #e5e7eb !important;
+}
+.dark .card__value {
+  color: #ffffff !important;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
